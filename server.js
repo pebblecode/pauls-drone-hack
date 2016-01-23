@@ -28,9 +28,10 @@ server.route({
     handler: function(request, reply){
       const payload = request.payload;
       const slashCommand = payload.command.substr('1');
-      
+
       commands.push(slashCommand);
-      io.sockets.emit('commands', commands);
+      io.sockets.emit(slashCommand);
+      //io.sockets.emit('commands', commands);
 
       reply();
     }
